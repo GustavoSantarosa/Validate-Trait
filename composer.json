@@ -1,0 +1,33 @@
+{
+  "name": "gustavosantarosa/validate-trait",
+  "license": "MIT",
+  "homepage": "http://www.gustavosantarosa.esy.es/",
+  "description": "ValidateTrait for Laravel",
+  "require": {
+    "php": "^8.0",
+    "illuminate/support": "^11.0@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "GustavoSantarosa\\ValidateTrait\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Luis Gustavo Santarosa",
+      "email": "gustavo-computacao@hotmail.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "gustavo-computacao@hotmail.com"
+  },
+  "minimum-stability": "dev",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "GustavoSantarosa\\ValidateTrait\\Provider\\ValidateTraitProvider"
+      ]
+    }
+  }
+}
