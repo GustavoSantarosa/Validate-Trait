@@ -2,18 +2,11 @@
 
 ## 🧐 Sobre <a name = "about"></a>
 
-Este pacote foi criado por conta da deficiencia em que o laravel tem de trabalhar com schemas do postgresql.
-Ao utilizar a trait na model, ele automaticamente, identifica o schema ao qual a model pertence, se baseando na pasta ao qual
-a model se encontra, por exemplo:
+Este pacote foi criado para que a logica do request possa ser chamado automaticamente de quadentro do service Pattern.
 
-```
-Models/People/userModel
-```
-Schema: People
-Table: Users
+Ele tambem faz o bind do request padrão, aquele que normalmente possui o mesmo caminho do service incluindo o mesmo nome quando necessario.
 
-
-Com isso, voce remove a necessidade de ficar colocando o table na model manualmente.
+Com isso, voce diminui a repetição de código quando for algum padrão, sem que seja engessado tambem.
 Sempre que possivel ele sera atualizado, e esta aberto para a comunidade sugerir melhorias.
 
 ## 🏁 Para utilizar o pack
@@ -21,10 +14,10 @@ Sempre que possivel ele sera atualizado, e esta aberto para a comunidade sugerir
 Para utilizar a classe, basta instalar ela utilizando o comando do composer:
 
 ```
-composer require gustavosantarosa/setschema-trait-postgresql
+composer require gustavosantarosa/validate-trait
 ```
 
-e chamar ela dentro de uma model.
+e chamar ela dentro de um service.
 
 Pronto, ja é para estar funcionando.
 
@@ -32,8 +25,9 @@ Pronto, ja é para estar funcionando.
 
 Nele existem algumas ferramentas uteis.
 
-- BaseEnum:
-  - Popula a variavel table, com o schema automaticamente.
+- Validate Trait:
+  - Faz o bind automatico do request cujo caminho e nome sejam os mesmo do service.
+  - Chama a classe de request passada, ou caso tenha utilizado o bind automatico.
 
 ## ⛏️ Utilizado
 
