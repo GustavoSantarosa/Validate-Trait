@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace GustavoSantarosa\ValidateTrait;
 
 use Illuminate\Support\Str;
 
