@@ -21,7 +21,7 @@ e chamar ela dentro de um service.
 
 Pronto, ja é para estar funcionando.
 
-## 🎈 Utilizando
+## 🎈 Recursos
 
 Nele existem algumas ferramentas uteis.
 
@@ -29,7 +29,14 @@ Nele existem algumas ferramentas uteis.
   - Faz o bind automatico do request cujo caminho e nome sejam os mesmo do service.
   - Chama a classe de request passada, ou caso tenha utilizado o bind automatico.
 
-## ⛏️ Utilizado
+## 🧐 Outras Bibliotecas
+
+- [Enum-Basics-Extension](https://packagist.org/packages/gustavosantarosa/enum-basics-extension) - Utilizado para auxiliar nas Classes de Enums;
+- [SetSchema-Trait](https://packagist.org/packages/gustavosantarosa/setschema-trait-postgresql) - Suprir a necessidade de setar os schemas automaticamente do PostgreSQL;
+- [PerPage-Trait](https://packagist.org/packages/gustavosantarosa/perpage-trait) - Padronizar a quantidade do paginate na api inteira e definir uma quantidade máxima;
+- [Handler-Basics-Extension](https://packagist.org/packages/gustavosantarosa/handler-basics-extension) - Contem tratamento das principais exceções do laravel, e contem varios responses para lhe auxiliar;
+
+## ⛏️ Ferramentas
 
 - [php](https://www.php.net/) - linguagem
 
