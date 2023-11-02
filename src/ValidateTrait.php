@@ -29,7 +29,7 @@ trait ValidateTrait
     {
         $action = Request()->route()->getActionMethod();
 
-        $requestPrefixes = ['App', 'HTTP', 'Requests'];
+        $requestPrefixes = ['App', 'Http', 'Requests'];
 
         foreach (explode('\\', static::class) as $prefix) {
             if ('App' !== $prefix && 'Services' !== $prefix && $prefix !== class_basename(static::class)) {
