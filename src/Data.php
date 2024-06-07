@@ -2,6 +2,8 @@
 
 namespace GustavoSantarosa\ValidateTrait;
 
+use Illuminate\Support\Str;
+
 class Data
 {
     public function __construct(array|object $data)
@@ -29,5 +31,34 @@ class Data
     public function toObject(): object
     {
         return json_decode(json_encode($this));
+    }
+
+    public function toJson(): string
+    {
+        return json_encode($this);
+    }
+
+    public function toUpperCamelCase(array $exception = []): object
+    {
+        $data = $this->toArray();
+        $data = $this->arrayKeyUcfirst($data, $exception);
+
+        return new Data($data);
+    }
+
+    private function arrayKeyUcfirst(array|object $data, array $exception = []): array
+    {
+        $data_modify = [];
+        foreach ($data as $key => $value) {
+            if (!in_array($key, $exception)) {
+                if (is_string($value) || is_numeric($value)) {
+                    $data_modify[ucfirst(Str::camel($key))] = $value;
+                } elseif (is_array($value)) {
+                    $data_modify[ucfirst(Str::camel($key))] = $this->arrayKeyUcfirst($value, $exception);
+                }
+            }
+        }
+
+        return $data_modify;
     }
 }

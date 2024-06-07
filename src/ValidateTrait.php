@@ -3,14 +3,13 @@
 namespace GustavoSantarosa\ValidateTrait;
 
 use Illuminate\Support\Str;
-use GustavoSantarosa\ValidateTrait\Data;
 
 trait ValidateTrait
 {
     /**
      * Validate function.
      */
-    public function validate(object|string|null $requestClass = null, bool $toArray = false, bool $toUpperCamelCase = false): object|array
+    public function validate(object|string|null $requestClass = null): Data
     {
         if (!$requestClass) {
             $requestClass = $this->defineClassBindRequest();
@@ -18,18 +17,8 @@ trait ValidateTrait
 
         $request = app($requestClass)->validated();
 
-        $data = $toUpperCamelCase ? $this->arrayKeyUcfirst($request) : $request;
-        $data = new Data($data);
-        $data = $toArray ? $data->toArray() : $data->toObject();
-
-        return $data;
+        return new Data($request);
     }
-
-    // preciso fazer um metodo magico para fazer get de atributos que podem nao existir
-    /*  public function __get(string $name): mixed
-     {
-         return $this->$name;
-     } */
 
     /**
      * DefineClassBindRequest function.
@@ -58,21 +47,5 @@ trait ValidateTrait
         }
 
         return $class;
-    }
-
-    private function arrayKeyUcfirst(array|object $data, array $exception = []): array
-    {
-        $data_modify = [];
-        foreach ($data as $key => $value) {
-            if (!in_array($key, $exception)) {
-                if (is_string($value) || is_numeric($value)) {
-                    $data_modify[ucfirst(Str::camel($key))] = $value;
-                } elseif (is_array($value)) {
-                    $data_modify[ucfirst(Str::camel($key))] = $this->arrayKeyUcfirst($value, $exception);
-                }
-            }
-        }
-
-        return $data_modify;
     }
 }
