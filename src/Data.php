@@ -38,17 +38,27 @@ class Data
         return json_encode($this);
     }
 
-    public function toUpperCamelCase(array $exception = []): object
-    {
+    public function toUpperCamelCase(
+        array $exception = [],
+        bool $excludeException = true
+    ): object {
         $data = $this->toArray();
-        $data = $this->arrayKeyUcfirst($data, $exception);
+        $data = $this->arrayKeyUcfirst(
+            $data,
+            $exception,
+            $excludeException
+        );
 
         return new Data($data);
     }
 
-    private function arrayKeyUcfirst(array|object $data, array $exception = []): array
-    {
+    private function arrayKeyUcfirst(
+        array|object $data,
+        array $exception = [],
+        bool $excludeException = true
+    ): array {
         $data_modify = [];
+
         foreach ($data as $key => $value) {
             if (!in_array($key, $exception)) {
                 if (is_string($value) || is_numeric($value)) {
@@ -56,6 +66,13 @@ class Data
                 } elseif (is_array($value)) {
                     $data_modify[ucfirst(Str::camel($key))] = $this->arrayKeyUcfirst($value, $exception);
                 }
+
+                continue;
+            }
+
+            if (!$excludeException) {
+                $data_modify[$key] = $value;
+                continue;
             }
         }
 
