@@ -6,10 +6,13 @@ use Illuminate\Support\Str;
 
 class Data
 {
-    public function __construct(array|object $data)
+    protected bool $populate = false;
+
+    public function __construct(array|object $data = [])
     {
         foreach ($data as $key => $value) {
-            $this->$key = $value;
+            $this->populate = true;
+            $this->$key     = $value;
         }
     }
 
@@ -25,7 +28,16 @@ class Data
 
     public function toArray(): array
     {
-        return (array) $this;
+        $publicProperties = [];
+
+        foreach ($this as $key => $value) {
+            $reflection = new \ReflectionProperty($this, $key);
+            if ($reflection->isPublic()) {
+                $publicProperties[$key] = $value;
+            }
+        }
+
+        return $publicProperties;
     }
 
     public function toObject(): object
@@ -77,5 +89,62 @@ class Data
         }
 
         return $data_modify;
+    }
+
+    public function check(): bool
+    {
+        return $this->populate;
+    }
+
+    public function merge(array|object $data = []): self
+    {
+        foreach ($data as $key => $value) {
+            $this->$key = $value;
+        }
+
+        return $this;
+    }
+
+    public function only(array $keys): object
+    {
+        $data = $this->toArray();
+        $data = array_filter($data, fn ($key) => in_array($key, $keys), ARRAY_FILTER_USE_KEY);
+
+        return new Data($data);
+    }
+
+    public function except(array $keys): object
+    {
+        $data = $this->toArray();
+        $data = array_filter($data, fn ($key) => !in_array($key, $keys), ARRAY_FILTER_USE_KEY);
+
+        return new Data($data);
+    }
+
+    public function has(string $key): bool
+    {
+        return isset($this->$key);
+    }
+
+    public function isEmpty(): bool
+    {
+        return empty($this->toArray());
+    }
+
+    public function isNotEmpty(): bool
+    {
+        return !empty($this->toArray());
+    }
+
+    public function dd(): void
+    {
+        dd($this);
+    }
+
+    public function dump(): self
+    {
+        dump($this);
+
+        return $this;
     }
 }
