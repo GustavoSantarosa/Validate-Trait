@@ -20,7 +20,7 @@ trait AutoDataTrait
             isset($this->initializedAutoDataTrait)
             && in_array(request()->route()->getActionMethod(), $this->initializedAutoDataTrait)
         ) {
-            request()->data = $this->validate();
+            request()->data('validated', $this->validate());
         }
     }
 }
