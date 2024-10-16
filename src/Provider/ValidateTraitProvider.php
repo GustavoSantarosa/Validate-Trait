@@ -2,8 +2,9 @@
 
 namespace GustavoSantarosa\ValidateTrait\Provider;
 
-use Illuminate\Support\ServiceProvider;
+use GustavoSantarosa\ValidateTrait\Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\ServiceProvider;
 
 class ValidateTraitProvider extends ServiceProvider
 {
@@ -16,11 +17,11 @@ class ValidateTraitProvider extends ServiceProvider
     {
         Request::macro('data', function ($key = null, $value = null) {
             if (is_null($key)) {
-                return $this->input('data')['validated'];
+                return $this->input('data')['validated'] ?? app(Data::class);
             }
 
             if (is_null($value)) {
-                return $this->input('data')[$key] ?? null;
+                return $this->input('data')[$key] ?? app(Data::class);
             }
 
             $data       = $this->input('data', []);
@@ -36,6 +37,5 @@ class ValidateTraitProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 }
