@@ -1,6 +1,6 @@
 <?php
 
-namespace GustavoSantarosa\ValidateTrait;
+namespace QuantumCode\ValidateTrait;
 
 use Illuminate\Support\Str;
 

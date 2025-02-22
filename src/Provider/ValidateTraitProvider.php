@@ -1,8 +1,8 @@
 <?php
 
-namespace GustavoSantarosa\ValidateTrait\Provider;
+namespace QuantumCode\ValidateTrait\Provider;
 
-use GustavoSantarosa\ValidateTrait\Data;
+use QuantumCode\ValidateTrait\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 
