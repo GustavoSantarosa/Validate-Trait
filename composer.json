@@ -1,5 +1,5 @@
 {
-  "name": "quantumcode/validate-trait",
+  "name": "quantumtecnology/validate-trait",
   "license": "MIT",
   "homepage": "http://www.gustavosantarosa.esy.es/",
   "description": "ValidateTrait for Laravel",
@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "QuantumCode\\ValidateTrait\\": "src/"
+      "QuantumTecnology\\ValidateTrait\\": "src/"
     }
   },
   "authors": [
@@ -27,7 +27,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "QuantumCode\\ValidateTrait\\Provider\\ValidateTraitProvider"
+        "QuantumTecnology\\ValidateTrait\\Provider\\ValidateTraitProvider"
       ]
     }
   }

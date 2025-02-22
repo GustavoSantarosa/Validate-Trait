@@ -1,8 +1,8 @@
 <?php
 
-namespace QuantumCode\ValidateTrait\Provider;
+namespace QuantumTecnology\ValidateTrait\Provider;
 
-use QuantumCode\ValidateTrait\Data;
+use QuantumTecnology\ValidateTrait\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 

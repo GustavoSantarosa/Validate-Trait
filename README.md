@@ -14,7 +14,7 @@ Sempre que possivel ele sera atualizado, e esta aberto para a comunidade sugerir
 Para utilizar a classe, basta instalar ela utilizando o comando do composer:
 
 ```
-composer require quantumcode/validate-trait
+composer require quantumtecnology/validate-trait
 ```
 
 e chamar ela dentro de um service.
@@ -31,10 +31,10 @@ Nele existem algumas ferramentas uteis.
 
 ## 🧐 Outras Bibliotecas
 
-- [Enum-Basics-Extension](https://packagist.org/packages/quantumcode/enum-basics-extension) - Utilizado para auxiliar nas Classes de Enums;
-- [SetSchema-Trait](https://packagist.org/packages/quantumcode/setschema-trait-postgresql) - Suprir a necessidade de setar os schemas automaticamente do PostgreSQL;
-- [PerPage-Trait](https://packagist.org/packages/quantumcode/perpage-trait) - Padronizar a quantidade do paginate na api inteira e definir uma quantidade máxima;
-- [Handler-Basics-Extension](https://packagist.org/packages/quantumcode/handler-basics-extension) - Contem tratamento das principais exceções do laravel, e contem varios responses para lhe auxiliar;
+- [Enum-Basics-Extension](https://packagist.org/packages/quantumtecnology/enum-basics-extension) - Utilizado para auxiliar nas Classes de Enums;
+- [SetSchema-Trait](https://packagist.org/packages/quantumtecnology/setschema-trait-postgresql) - Suprir a necessidade de setar os schemas automaticamente do PostgreSQL;
+- [PerPage-Trait](https://packagist.org/packages/quantumtecnology/perpage-trait) - Padronizar a quantidade do paginate na api inteira e definir uma quantidade máxima;
+- [Handler-Basics-Extension](https://packagist.org/packages/quantumtecnology/handler-basics-extension) - Contem tratamento das principais exceções do laravel, e contem varios responses para lhe auxiliar;
 
 ## ⛏️ Ferramentas
 
@@ -42,4 +42,4 @@ Nele existem algumas ferramentas uteis.
 
 ## ✍️ Autor
 
-- [@Luis Gustavo Santarosa Pinto](https://github.com/QuantumCode) - Idea & Initial work
+- [@Luis Gustavo Santarosa Pinto](https://github.com/QuantumTecnology) - Idea & Initial work

@@ -1,6 +1,6 @@
 <?php
 
-namespace QuantumCode\ValidateTrait;
+namespace QuantumTecnology\ValidateTrait;
 
 trait AutoDataTrait
 {
